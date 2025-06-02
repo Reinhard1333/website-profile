@@ -1,0 +1,20 @@
+ echo "<td>
+            <a href='edit.php?kode=" . $row['No_kegiatan'] . "' class='btn btn-primary'>Edit</a>
+            <a href='hapus.php?No_kegiatan=" . $row['No_kegiatan'] . "' class='btn btn-danger' onclick='return confirm(\"Yakin ingin menghapus data ini?\")'>Hapus</a>
+          </td>";
+    echo "</tr>";
+
+    <tbody>
+          <?php
+          $query = "SELECT * FROM portofolio";
+          $result = mysqli_query($koneksi, $query);
+          $no = 1;
+          while ($row = mysqli_fetch_assoc($result)) {
+              echo "<tr>";
+              echo "<td>" . $no++ . "</td>";
+              echo "<td>" . $row['Nama_kegiatan'] . "</td>";
+              echo "<td>" . $row['Tanggal'] . "</td>";
+              echo "<td><img src='uploads/" . $row['Bukti'] . "' alt='Bukti' class='sertifikat-img'></td>";
+          }
+          ?>
+        </tbody>
